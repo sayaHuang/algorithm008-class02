@@ -42,3 +42,6 @@ func moveZeroes(_ nums: inout [Int]) {
 ![swiftSlowerThenJava.png](../images/swiftSlowerThenJava.png)
 
 
+##问题二: swift语言 [1] + [1,2,3]得底层实现
+
+##问题三: OC/swift/java 三种语言数据初始化得值

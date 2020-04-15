@@ -2,46 +2,16 @@
 [TOC]
 #学习笔记
 
-##1.问题1:同样的解题思路,为什么swift语言得速度慢很多
-java
-```java
-public void moveZeroes(int[] nums) {
-    //i 用于遍历整个数组, 扫描到不为0得数, 直接赋值到j位置
-    int j = 0;
-    for(int i=0; i < nums.length; ++i) {
-        if (nums[i] != 0) {
-            nums[j++] = nums[i];
-        }
-    }
-		
-		//通过i已经遍历完了所有得元素, j之后得所有元素都为0
-    while (j < nums.length) {
-        nums[j++] = 0;
-    }
-}
-```
+##自顶向下
+自顶向下得思考主要是基于我们已经知道得东西, 逐步拆分问题, 解决每一个小问题, 这样一个比较大的问题就得以解决.
 
-swift
-```swift
-func moveZeroes(_ nums: inout [Int]) {
-    var lastPostionNonZore : Int = 0;
-    //i用于遍历整个数组
-    for i in 0..<nums.count {
-        if nums[i] != 0 {
-            //lastPostionNonZore != i 说明到i为止,前面有0
-            if lastPostionNonZore != i {
-                nums[lastPostionNonZore] = nums[i]
-                nums[i] = 0 
-            }
-            lastPostionNonZore += 1
-        }
-    }
-}
-```
+###软件设计应该采用自顶向下还是自底向上的方法？
+>真正得风险不是在于采用了那中方法, 而是在于人们总是试图预先直到所有事情, 就像瀑布式思维这类设计.自定向下和自底向上都只是学习和知识排序得策略, 俩者只是不同得思维方式, 它们都非常有用.
+>
+自顶向下的思考主要是基于我们已经知道的东西。自顶向下就像逐步分拆问题，而每个问题就像一个内容未知的黑盒子。但分拆到一定程度，我们会陷入困境，这时候就必须转换到自底向上的视角，尝试发现我们不知道的东西。现在我们只是在开发软件的一小部分（它们可以成为参与者），最终它会成为一个更大的系统中的子系统，这是可以被认为是一种浮现式设计。
 
-![swiftSlowerThenJava.png](../images/swiftSlowerThenJava.png)
+[Vernon 谈软件设计，到底是自顶向下还是自底向上](https://www.infoq.cn/article/BK-slZpJePA3NuQM7yEp)
 
-
-##问题二: swift语言 [1] + [1,2,3]得底层实现
-
-##问题三: OC/swift/java 三种语言数据初始化得值
+##主定理
+![CommonalgorithmsBigO](../imags/CommonalgorithmsBigO.jpg)
+**参考连接** [主定理](https://zh.wikipedia.org/wiki/主定理)

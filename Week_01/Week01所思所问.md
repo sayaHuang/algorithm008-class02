@@ -1,9 +1,9 @@
-[TOC]
+ [TOC]
 
 # Week01所思所问
 
-##1.问题1:同样的解题思路,为什么swift语言得速度慢很多
-java
+## 1.问题1:同样的解题思路,为什么swift语言得速度慢很多
+java  
 ```java
 public void moveZeroes(int[] nums) {
     //i 用于遍历整个数组, 扫描到不为0得数, 直接赋值到j位置
@@ -21,7 +21,7 @@ public void moveZeroes(int[] nums) {
 }
 ```
 
-swift
+swift  
 ```swift
 func moveZeroes(_ nums: inout [Int]) {
     var lastPostionNonZore : Int = 0;
@@ -39,9 +39,9 @@ func moveZeroes(_ nums: inout [Int]) {
 }
 ```
 
-![swiftSlowerThenJava.png](../images/swiftSlowerThenJava.png)
+![swiftSlowerThenJava.png](../images/swiftSlowerThenJava.png)  
 
 
-##问题二: swift语言 [1] + [1,2,3]得底层实现
+## 问题二: swift语言 [1] + [1,2,3]得底层实现
 
-##
+## 

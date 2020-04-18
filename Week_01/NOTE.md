@@ -64,3 +64,45 @@ NOTE: 链表访问指定元素时, 需要根据指针一个结点一个结点地
 * 跳表是一种 动态得数据结构, 多次得插入和删除操作会导致跳表退化为单链表, 所以跳表需要维护好索引和原始链表大小得平衡性, 可以通过一个随机函数, 来决定将这个结点插入到哪几级索引中. 比如随机函数返回值为K, 则可以将新插入得结点添加到第一层到第K层索引中.
 * 跳表得查询, 删除, 插入得时间复杂度均为O(logN). 
 * 跳表得空间复杂度O(N)
+
+## 课后作业
+### 新的 API 改写 Deque 的代码
+```java
+ArrayDeque<String> deque = new ArrayDeque<String>();
+deque.offerFirst("zore");
+
+deque.offerFirst("first");
+deque.offerFirst("second");
+deque.offerFirst("third");
+System.out.println(deque);
+
+String peekFirstString = deque.peekFirst();
+System.out.println(peekFirstString);
+System.out.println(deque);
+
+while (deque.size() > 1) {
+    System.out.println(deque.pollFirst());
+}
+System.out.println(deque);
+
+System.out.println("========");
+
+deque.offerLast("first");
+deque.offerLast("second");
+deque.offerLast("third");
+System.out.println(deque);
+
+String peekFirstString_1 = deque.peekLast();
+System.out.println(peekFirstString_1);
+System.out.println(deque);
+
+while (deque.size() > 1) {
+    System.out.println(deque.pollLast());
+}
+System.out.println(deque);
+
+System.out.println("========");
+
+System.out.println(deque.pollLast());
+System.out.println(deque);
+```

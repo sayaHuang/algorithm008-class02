@@ -20,7 +20,8 @@ int hash(Object key) {
 
 代码摘要
 ```java
-
+//put
+//get
 ```
 
 ## 如何设计一个工业级别的散列表

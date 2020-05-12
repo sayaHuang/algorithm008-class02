@@ -42,6 +42,38 @@
 解决思路: 皇后一行一行的放, 默认均从左到右检测是否能放皇后, 如果这一行有可以放置的位置, 则放下皇后, 如果到行尾了还没有位置, 则回溯到上一行, 将皇后放在下一个可行的位置
 [每日一题-51-N皇后.md](./每日一题-51-N皇后.md)
 
+## 子集
+一个`不含重复元素`的数组, 返回其所有可能的子集  
+非常适合使用一下代码, 回溯出所有子集  
+```java
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> list = new ArrayList<>();
+        Arrays.sort(nums);
+        backtrack(list, new ArrayList<>(), nums, 0);
+        return list;
+    }
+    //[[],[1],[1,2],[1,2,3],[1,3],[2],[2,3],[3]]
+    //[0,0,0]第一层dg 第二层dg 第三层dg
+    //       [1,0,0],[1,1,0],[1,1,1]
+    //               [1,0,1]
+    //       [0,1,0],[0,1,1]
+    //       [0,0,1]
+    private void backtrack(List<List<Integer>> list , List<Integer> tempList, int [] nums, int start){
+        list.add(new ArrayList<>(tempList));
+        for(int i = start; i < nums.length; i++){
+            tempList.add(nums[i]);
+            backtrack(list, tempList, nums, i + 1);
+            tempList.remove(tempList.size() - 1);
+        }
+    }
+```
+### 子集的类似题目集合
+[每日一题-78-子集.md](./每日一题-78-子集.md)
+[每日一题-77-组合.md](./每日一题-77-组合.md)
+[每日一题-90-子集 II.md](./每日一题-90-子集 II.md)
+[每日一题-47-全排列 II.md](./每日一题-47-全排列 II.md)
+[每日一题-46-全排列.md](./每日一题-46-全排列.md)
+
 ## 递归
 **递归是一种算法. **  
 举一个简单的例子说明递归  

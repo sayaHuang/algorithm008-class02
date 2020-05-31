@@ -147,3 +147,64 @@ rob(4) = Math.max(rob(3),rob(2)+nums[4])
 ## 动态规划优势
 递归的解法 (回溯) 是不可以放在生产环境的，因为我们很难控制问题规模的大小，无法预料何时会有爆栈的风险, 所以动态规划通过迭代推理更方安全些.   
 [01-动态规划.md](./01-动态规划.md)
+
+## 超哥视频中的题目
+### 爬楼梯 
+1. 每次可以爬 1 步 ,  2 步,  3 步, 请问第n步有多少种走法
+```java
+    //每次可以行走 1 2 3
+    public int climbStairs2(int n) {
+        if (n < 3) { return n; }
+        int dp1 = 1;
+        int dp2 = 2;
+        int dp3 = 4;
+        int index = 4;
+        while (index <= n) {
+            int dpNext = dp1 + dp2 + dp3;
+            dp1 = dp2;
+            dp2 = dp3;
+            dp3 = dpNext;
+        }
+        return dp3;
+    }
+```
+### 时间复杂度
+* 时间复杂度: O(N)
+* 空间复杂度: O(1)
+
+2. 每次可以爬 1 步 ,  2 步,  3 步, 并且相邻的步数不可以相同, 请问第n步有多少种走法
+```java
+    //每次可以行走 1 2 3, 但是相邻的步数不能相同
+    public int climbStairs3(int n) {
+        if (n < 3) { return 1; }
+        //row标识第几个台阶 col标识 走几步
+        //dp宽度为4是因为每次可以走 1 2 3, 多出来的dp[n][0]存储对应的n有多少种走法
+        //牺牲了第0行, 没有存放任何数据, 为了代码的阅读性, 4为int值的大小
+        int[][] dp = new int[n+1][4];
+        //base case
+        dp[1][0] = 1; dp[1][1] = 1;
+        dp[2][0] = 1; dp[2][2] = 1;
+        dp[3][0] = 3; dp[3][1] = 1; dp[3][2] = 1; dp[3][3] = 1;
+        for (int stage = 4; stage <= n; stage++) {
+            int curStageWays = 0;
+            for (int i = 1; i <= 3; i++) {
+                int preStage = stage - i;
+                int waysForCurSteps = 0;
+                //j 标识待走的数
+                for (int j = 1; j <= 3; j++) {
+                    if (i == j ) {
+                        continue;
+                    }
+                    waysForCurSteps += dp[preStage][j];
+                    curStageWays += dp[preStage][j];
+                }
+                dp[stage][i] = waysForCurSteps;
+            }
+            dp[stage][0] = curStageWays;
+        }
+        return dp[n][0];
+    }
+```
+### 时间复杂度
+* 时间复杂度: O(N*9)-> O(N)
+* 空间复杂度: O(N*4)-> O(N)

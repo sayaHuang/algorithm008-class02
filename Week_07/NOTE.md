@@ -6,6 +6,14 @@
 根据题意 `已知 A 是 B 的朋友，B 是 C 的朋友，那么我们可以认为 A 也是 C 的朋友` 可以联想到使用并查集解决该问题
 [每日一题-547-朋友圈.md](./每日一题-547-朋友圈.md)
 
+###  每日一题-130-被围绕的区域
+bfs 递归。可以想想二叉树中如何递归的进行层序遍历。
+bfs 非递归。一般用队列存储。(Queue)
+dfs 递归。最常用，如二叉树的先序遍历。
+dfs 非递归。一般用 stack。(Stack)
+[每日一题-130-被围绕的区域.md](./每日一题-130-被围绕的区域.md)
+[对BFS&DFS的代码实现](https://leetcode-cn.com/problems/surrounded-regions/solution/bfsdi-gui-dfsfei-di-gui-dfsbing-cha-ji-by-ac_pipe/)
+
 ## 并查集
 解决图论中「动态连通性」问题的  
 这里所说的「连通」是一种等价关系，也就是说具有如下三个性质：  

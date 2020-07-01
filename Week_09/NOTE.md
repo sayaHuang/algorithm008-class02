@@ -276,3 +276,9 @@
 * 空间复杂度: O(N)
 
 ## 字符串匹配
+
+### leetcode-刷题
+1. [1143-最长公共子序列](https://leetcode-cn.com/problems/longest-common-subsequence/)
+2. [72-编辑距离](https://leetcode-cn.com/problems/edit-distance/)
+3. [115-不同得子序列](https://leetcode-cn.com/problems/distinct-subsequences/submissions/)
+4. [44-通配符匹配](https://leetcode-cn.com/problems/wildcard-matching/)
